@@ -1,9 +1,12 @@
 const THREE = require('three');
 
 function createRenderer() {
-  let renderer = new THREE.WebGLRenderer();
+  let renderer = new THREE.WebGLRenderer({
+    antialias: true,
+  });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setClearColor("#f8f8ff");
+  renderer.setPixelRatio(window.devicePixelRatio);
   let output = document.querySelector("#output");
   output.appendChild(renderer.domElement);
   return renderer;
@@ -49,7 +52,7 @@ function createSphere() {
     return mesh;
 }
 function createLight() {
-    let light = new THREE.PointLight("white"1);
+    let light = new THREE.PointLight("white", 1);
     return light;
 }
 
